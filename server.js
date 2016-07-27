@@ -11,9 +11,22 @@ switch(env) {
     case 'production':
         console.log('*** PROD ***');
         app.use(express.static(config.root + config.compile.replace('.', '')));
-        app.get('/*', function(req, res) {
-            res.sendFile(config.root + config.compile.replace('.', '') + 'index.html');
+        app.get('/orderSubmit', function(req, res) {
+            console.log('*** orderSubmit ***');
+            const https = require('https');
+
+            https.get('https://acmccloud.aaxisaws.com/REST/order/external', (res) => {
+              
+              res.on('data', (d) => {
+                process.stdout.write(d);
+              });
+            
+            }).on('error', (e) => {
+              console.error(e);
+            });
         });
+        
+        
         break;
     default:
         console.log('*** DEV ***');
