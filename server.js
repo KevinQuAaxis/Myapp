@@ -20,6 +20,9 @@ switch(env) {
         app.use(express.static(config.root + config.src.replace('.', '') + 'app/'));
         app.use(express.static(config.root));
         app.use(express.static(config.root + config.components.dir));
+        app.get('/orderSubmit', function(req, res) {
+            console.log('*** orderSubmit ***');
+        });
         app.get('/*', function(req, res) {
             res.sendFile(config.root + config.build.replace('.', '') + 'index.html');
         });
