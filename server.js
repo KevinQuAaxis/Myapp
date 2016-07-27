@@ -1,5 +1,6 @@
 'use strict';
 var config = require('./gulp.config');
+var https = require('https');
 
 var express = require('express'),
     env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev',
@@ -22,10 +23,19 @@ switch(env) {
         app.use(express.static(config.root + config.components.dir));
         app.get('/orderSubmit', function(req, res) {
             console.log('*** orderSubmit ***');
+            const https = require('https');
+
+            https.get('https://acmccloud.aaxisaws.com/REST/order/external', (res) => {
+              
+              res.on('data', (d) => {
+                process.stdout.write(d);
+              });
+            
+            }).on('error', (e) => {
+              console.error(e);
+            });
         });
-        app.get('/*', function(req, res) {
-            res.sendFile(config.root + config.build.replace('.', '') + 'index.html');
-        });
+       
         break;
 }
 
