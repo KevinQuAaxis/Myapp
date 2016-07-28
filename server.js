@@ -15,7 +15,8 @@ switch(env) {
         app.post('/orderSubmit', function(req1, res1) {
             
             console.log('*** orderSubmit ***');
-            console.log('*** req1 ***' + req1.body);
+            console.log("statusCode: ", res1.statusCode); 
+            console.log("headers: ", res1.headers);
             
             var options = { 
                   hostname: 'acmccloud.aaxisaws.com', 
