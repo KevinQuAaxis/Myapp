@@ -31,8 +31,9 @@ switch(env) {
             
             request(options, function (error, response, body) {
               if (error) throw new Error(error);
-            
-              console.log(body);
+                
+               response.json(body);
+              //console.log(body);
             });
 
             
