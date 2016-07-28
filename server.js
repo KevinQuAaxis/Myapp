@@ -18,7 +18,7 @@ switch(env) {
             console.log('*** orderSubmit ***');
             console.log("---------req1: ", req1.body); 
             console.log("------------headers1 authorization: ", req1.headers['authorization']);
-            
+            /**
             var request = require("request");
 
             var options = { method: 'POST',
@@ -37,7 +37,7 @@ switch(env) {
                res1.json(body);
               //console.log(body);
             });
-
+            **/
             
             /** var options = { 
                   hostname: 'acmccloud.aaxisaws.com', 
