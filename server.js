@@ -11,7 +11,7 @@ switch(env) {
     case 'production':
         console.log('*** PROD ***');
         
-        app.use(express.bodyParser());
+       // app.use(express.bodyParser());
         app.use(express.static(config.root + config.compile.replace('.', '')));
         app.get('/orderSubmit', function(req, res) {
             
