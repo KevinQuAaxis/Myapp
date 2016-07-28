@@ -13,17 +13,27 @@ switch(env) {
         app.use(express.static(config.root + config.compile.replace('.', '')));
         app.get('/orderSubmit', function(req, res) {
             console.log('*** orderSubmit ***');
-            const https = require('https');
-
-            https.get('https://acmccloud.aaxisaws.com/REST/order/external', (res) => {
-              
-              res.on('data', (d) => {
-                process.stdout.write(d);
-              });
-            
-            }).on('error', (e) => {
-              console.error(e);
-            });
+            var options = { 
+                  hostname: 'acmccloud.aaxisaws.com', 
+                  port: 443, 
+                  path: '/REST/order/external', 
+                  method: 'GET', 
+                  rejectUnauthorized:false 
+                }; 
+                 
+            var req = https.request(options, function(res) { 
+              console.log("statusCode: ", res.statusCode); 
+              console.log("headers: ", res.headers); 
+             
+              res.on('data', function(d) { 
+                process.stdout.write(d); 
+              }); 
+            }); 
+            req.end(); 
+             
+            req.on('error', function(e) { 
+              console.error(e); 
+            }); 
         });
         
         
@@ -36,17 +46,6 @@ switch(env) {
         app.use(express.static(config.root + config.components.dir));
         app.get('/orderSubmit', function(req, res) {
             console.log('*** orderSubmit ***');
-            const https = require('https');
-
-            https.get('https://acmccloud.aaxisaws.com/REST/order/external', (res) => {
-              
-              res.on('data', (d) => {
-                process.stdout.write(d);
-              });
-            
-            }).on('error', (e) => {
-              console.error(e);
-            });
         });
        
         break;
