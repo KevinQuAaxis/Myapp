@@ -25,7 +25,7 @@ switch(env) {
                   rejectUnauthorized:false 
                 }; 
                 
-            app.use(express.bodyParser());     
+            //app.use(express.bodyParser());     
             var req = https.request(options, function(res) { 
               console.log("statusCode: ", res.statusCode); 
               console.log("headers: ", res.headers); 
