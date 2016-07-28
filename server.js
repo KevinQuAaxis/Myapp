@@ -17,7 +17,7 @@ switch(env) {
                   hostname: 'acmccloud.aaxisaws.com', 
                   port: 443, 
                   path: '/REST/order/external', 
-                  method: 'GET', 
+                  method: 'POST', 
                   rejectUnauthorized:false 
                 }; 
                  
