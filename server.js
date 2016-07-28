@@ -32,7 +32,7 @@ switch(env) {
             request(options, function (error, response, body) {
               if (error) throw new Error(error);
                 
-               response.json(body);
+               //response.json(body);
               //console.log(body);
             });
 
