@@ -22,6 +22,7 @@ switch(env) {
 
             var options = { method: 'POST',
               url: 'https://acmccloud.aaxisaws.com/REST/order/external',
+              rejectUnauthorized: false,
               headers: 
                { 'cache-control': 'no-cache',
                  'content-type': 'application/json',
