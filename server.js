@@ -11,7 +11,6 @@ switch(env) {
     case 'production':
         console.log('*** PROD ***');
         
-       // app.use(express.bodyParser());
         app.use(express.static(config.root + config.compile.replace('.', '')));
         app.get('/orderSubmit', function(req, res) {
             
@@ -31,8 +30,9 @@ switch(env) {
               console.log("statusCode: ", res.statusCode); 
               console.log("headers: ", res.headers); 
              
-              res.on('data', function(d) { 
-                process.stdout.write(d); 
+              res.on('data', function(data) { 
+                console.log('*** req ***' + data.body);
+                //process.stdout.write(d); 
               }); 
             }); 
             req.end(); 
