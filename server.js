@@ -27,13 +27,18 @@ switch(env) {
                 
             //app.use(express.bodyParser());     
             var req = https.request(options, function(res) { 
-              console.log("statusCode: ", res.statusCode); 
-              console.log("headers: ", res.headers); 
+                console.log("statusCode: ", res.statusCode); 
+                console.log("headers: ", res.headers); 
              
-              res.on('data', function(data) { 
-                console.log('*** data.body ***' + data.body);
-                //process.stdout.write(d); 
-              }); 
+                req.on('data', function(chunk) { 
+                    data += chunk;
+                });
+              
+                req.on('end', function() {
+                    req.body = data;
+                    console.log("data: ", data);
+                    next();
+                });
             }); 
             req.end(); 
              
