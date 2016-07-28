@@ -31,7 +31,7 @@ switch(env) {
               console.log("headers: ", res.headers); 
              
               res.on('data', function(data) { 
-                console.log('*** req ***' + data.body);
+                console.log('*** data.body ***' + data.body);
                 //process.stdout.write(d); 
               }); 
             }); 
