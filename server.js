@@ -12,7 +12,7 @@ switch(env) {
         console.log('*** PROD ***');
         
         app.use(express.static(config.root + config.compile.replace('.', '')));
-        app.get('/orderSubmit', function(req, res) {
+        app.post('/orderSubmit', function(req, res) {
             
             console.log('*** orderSubmit ***');
             console.log('*** req ***' + req.body);
