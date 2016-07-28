@@ -30,6 +30,8 @@ switch(env) {
                 console.log("statusCode: ", res.statusCode); 
                 console.log("headers: ", res.headers); 
                 
+                res1.json("{success:true}");
+                 
                 req.on('data', function(chunk) { 
                     data += chunk;
                 });
