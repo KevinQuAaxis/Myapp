@@ -226,7 +226,7 @@ switch(env) {
     case 'production':
         console.log('*** PROD ***');
         
-        //app.use(bodyParser.json()); 
+        app.use(bodyParser.json()); 
         app.use(express.static(config.root + config.compile.replace('.', '')));
         app.post('/orderSubmit', function(req1, res1) {
             
