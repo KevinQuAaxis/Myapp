@@ -21,7 +21,7 @@ switch(env) {
             var request = require("request");
 
             var options = { method: 'POST',
-              url: 'https://thisismytestapp2.herokuapp.com/orderSubmit',
+              url: 'https://acmccloud.aaxisaws.com/REST/order/external',
               headers: 
                { 'cache-control': 'no-cache',
                  'content-type': 'application/json',
@@ -32,7 +32,7 @@ switch(env) {
             request(options, function (error, response, body) {
               if (error) throw new Error(error);
                 
-               //response.json(body);
+               res1.json(body);
               //console.log(body);
             });
 
