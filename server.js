@@ -15,10 +15,28 @@ switch(env) {
         app.post('/orderSubmit', function(req1, res1) {
             
             console.log('*** orderSubmit ***');
-            console.log("statusCode1: ", res1.statusCode); 
+            console.log("req1: ", req1); 
             console.log("headers1: ", res1.headers);
             
-            var options = { 
+            var request = require("request");
+
+            var options = { method: 'POST',
+              url: 'https://thisismytestapp2.herokuapp.com/orderSubmit',
+              headers: 
+               { 'cache-control': 'no-cache',
+                 'content-type': 'application/json',
+                 authorization: 'Basic YWFzZDphc2Rhc2Q=' },
+              body: '{order: \'001\'}',
+              json: true };
+            
+            request(options, function (error, response, body) {
+              if (error) throw new Error(error);
+            
+              console.log(body);
+            });
+
+            
+            /** var options = { 
                   hostname: 'acmccloud.aaxisaws.com', 
                   port: 443, 
                   path: '/REST/order/external', 
@@ -31,7 +49,7 @@ switch(env) {
                 console.log("statusCode: ", res.statusCode); 
                 console.log("headers: ", res.headers); 
                 
-                res1.json("{success:true}");
+                //res1.json("{success1:true}");
                  
                 req.on('data', function(chunk) { 
                     data += chunk;
@@ -47,7 +65,7 @@ switch(env) {
              
             req.on('error', function(e) { 
               console.error(e); 
-            }); 
+            }); **/
         });
         
         
