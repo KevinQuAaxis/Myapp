@@ -27,7 +27,7 @@ switch(env) {
                { 'cache-control': 'no-cache',
                  'content-type': 'application/json',
                  authorization: 'Basic YWFzZDphc2Rhc2Q=' },
-              body: '{order: \'001\'}',
+              body: "{order: '001'}",
               json: true };
             
             request(options, function (error, response, body) {
