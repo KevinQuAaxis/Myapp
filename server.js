@@ -1,7 +1,7 @@
 'use strict';
 var config = require('./gulp.config');
 var https = require('https');
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var mockOrder = {"order": {
   "egcPurchaseInfo": null,
   "lastModifiedTime": 1469158749000,
