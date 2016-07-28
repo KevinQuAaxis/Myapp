@@ -1,7 +1,7 @@
 'use strict';
 var config = require('./gulp.config');
 var https = require('https');
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 
 var express = require('express'),
     env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev',
@@ -12,7 +12,7 @@ switch(env) {
     case 'production':
         console.log('*** PROD ***');
         
-        app.use(bodyParser.json()); 
+        //app.use(bodyParser.json()); 
         app.use(express.static(config.root + config.compile.replace('.', '')));
         app.post('/orderSubmit', function(req1, res1) {
             
