@@ -10,9 +10,13 @@ var express = require('express'),
 switch(env) {
     case 'production':
         console.log('*** PROD ***');
+        
         app.use(express.static(config.root + config.compile.replace('.', '')));
         app.get('/orderSubmit', function(req, res) {
+            
             console.log('*** orderSubmit ***');
+            console.log('*** req ***' + req.body);
+            
             var options = { 
                   hostname: 'acmccloud.aaxisaws.com', 
                   port: 443, 
