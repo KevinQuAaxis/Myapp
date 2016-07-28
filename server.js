@@ -215,7 +215,7 @@ var mockOrder = {"order": {
     }
   },
   "totalCommerceItemCount": 1
-}}；
+}};
 
 var express = require('express'),
     env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev',
