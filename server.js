@@ -16,8 +16,8 @@ switch(env) {
         app.post('/orderSubmit', function(req1, res1) {
             
             console.log('*** orderSubmit ***');
-            console.log("req1: ", req1.body); 
-            console.log("headers1: ", req1.headers);
+            console.log("---------req1: ", req1.body); 
+            console.log("------------headers1 authorization: ", req1.headers['authorization']);
             
             var request = require("request");
 
