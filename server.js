@@ -15,9 +15,9 @@ switch(env) {
         app.use(express.static(config.root + config.compile.replace('.', '')));
         app.post('/orderSubmit', function(req1, res1) {
             
-            console.log('*** orderSubmited ***');
-            console.log("---------Order Detail: ", req1.body); 
-            console.log("------------Authorization: ", req1.headers['authorization']);
+            console.log('*** Order Submited From OCC Platform ***');
+            console.log("*** Order Detail: ", req1.body); 
+            console.log("*** Authorization: ", req1.headers['authorization']);
             
             var request = require("request");
 
@@ -42,38 +42,6 @@ switch(env) {
               }
               res1.json(error, response, body);
             });
-        
-            
-            /** var options = { 
-                  hostname: 'acmccloud.aaxisaws.com', 
-                  port: 443, 
-                  path: '/REST/order/external', 
-                  method: 'POST', 
-                  rejectUnauthorized:false 
-                }; 
-                
-            //app.use(express.bodyParser());     
-            var req = https.request(options, function(res) { 
-                console.log("statusCode: ", res.statusCode); 
-                console.log("headers: ", res.headers); 
-                
-                //res1.json("{success1:true}");
-                 
-                req.on('data', function(chunk) { 
-                    data += chunk;
-                });
-              
-                req.on('end', function() {
-                    req.body = data;
-                    console.log("data: ", data);
-                    res1.json("{success:true}");
-                });
-            }); 
-            req.end(); 
-             
-            req.on('error', function(e) { 
-              console.error(e); 
-            }); **/
         });
         
         
