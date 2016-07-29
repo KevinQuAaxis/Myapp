@@ -40,7 +40,7 @@ switch(env) {
               {
                 console.log('*** Submit to ACMC Cloud success: ', body);
               }
-              res1.json(error, response, body);
+              res1.json(error.stack, response, body);
             });
         });
         
