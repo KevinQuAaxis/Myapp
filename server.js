@@ -34,7 +34,7 @@ switch(env) {
             request(options, function (error, response, body) {
               if (error) 
               {
-                console.log('*** Submit to ACMC Cloud get error: ', error);
+                console.log('*** Submit to ACMC Cloud get error: ', error.stack);
               }
               else
               {
@@ -52,9 +52,6 @@ switch(env) {
         app.use(express.static(config.root + config.src.replace('.', '') + 'app/'));
         app.use(express.static(config.root));
         app.use(express.static(config.root + config.components.dir));
-        app.get('/orderSubmit', function(req, res) {
-            console.log('*** orderSubmit ***');
-        });
        
         break;
 }
