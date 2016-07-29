@@ -231,7 +231,7 @@ switch(env) {
         app.post('/orderSubmit', function(req1, res1) {
             
             console.log('*** orderSubmit ***');
-            console.log("---------req1: ", req1.body); 
+            console.log("---------req1.body: ", req1.body); 
             console.log("------------headers1 authorization: ", req1.headers['authorization']);
             
             var request = require("request");
@@ -243,7 +243,7 @@ switch(env) {
                { 'cache-control': 'no-cache',
                  'content-type': 'application/json',
                  authorization:  req1.headers['authorization'] },
-              body: mockOrder,
+              body: req1.body,
               json: true };
             
             request(options, function (error, response, body) {
